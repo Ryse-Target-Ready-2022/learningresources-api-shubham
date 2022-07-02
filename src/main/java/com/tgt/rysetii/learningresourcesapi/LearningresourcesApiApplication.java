@@ -10,6 +10,7 @@ public class LearningresourcesApiApplication {
 
         SpringApplication.run(LearningresourcesApiApplication.class, args);
 		System.out.println("Hello, World!");
+		//developed by shubh
 	}
 
 }
