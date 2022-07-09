@@ -12,21 +12,24 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 public class LearningResourceService {
-    private List<LearningResource> getLearningResources() {
-        String filename = "LearningResources.csv";
-        File file = new File(filename);
+
+    public List<LearningResource> getLearningResources(){
+        List<LearningResource> list;
+        File filename = new File("LearningResources.csv");
+        list = loadLearningResourcesFromCsv(filename);
+        return list;
+    }
+    private List<LearningResource> loadLearningResourcesFromCsv(File file) {
         List<LearningResource> learningResources = new ArrayList<>();
 
         try(FileReader reader = new FileReader(file);
             BufferedReader in = new BufferedReader(reader))
         {
             String line;
-            line = in.readLine();
-            while(line!=null){
+            while((line=in.readLine())!=null){
                 String[] attributes = line.split(",");
                 LearningResource learningResource = createLearningResource(attributes);
                 learningResources.add(learningResource);
-                line = in.readLine();
             }
         }
         catch(Exception ex){
