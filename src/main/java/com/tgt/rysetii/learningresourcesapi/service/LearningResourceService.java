@@ -62,23 +62,22 @@ public class LearningResourceService {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(learningResourcesFile.getName(), true));
             for(LearningResource learningResource:learningResources){
                 bufferedWriter.newLine();
-                StringBuilder singleLine = new StringBuilder();
-                singleLine.append(learningResource.getLearningResourceId());
-                singleLine.append(csvDelimiter);
-                singleLine.append(learningResource.getProductName());
-                singleLine.append(csvDelimiter);
-                singleLine.append(learningResource.getCostPrice());
-                singleLine.append(csvDelimiter);
-                singleLine.append(learningResource.getSellingPrice());
-                singleLine.append(csvDelimiter);
-                singleLine.append(learningResource.getLearningResourceStatus());
-                singleLine.append(csvDelimiter);
-                singleLine.append(learningResource.getCreatedDate());
-                singleLine.append(csvDelimiter);
-                singleLine.append(learningResource.getPublishedDate());
-                singleLine.append(csvDelimiter);
-                singleLine.append(learningResource.getRetiredDate());
-                bufferedWriter.write(singleLine.toString());
+                String singleLine = learningResource.getLearningResourceId() +
+                        csvDelimiter +
+                        learningResource.getProductName() +
+                        csvDelimiter +
+                        learningResource.getCostPrice() +
+                        csvDelimiter +
+                        learningResource.getSellingPrice() +
+                        csvDelimiter +
+                        learningResource.getLearningResourceStatus() +
+                        csvDelimiter +
+                        learningResource.getCreatedDate() +
+                        csvDelimiter +
+                        learningResource.getPublishedDate() +
+                        csvDelimiter +
+                        learningResource.getRetiredDate();
+                bufferedWriter.write(singleLine);
             }
             bufferedWriter.flush();
             bufferedWriter.close();
