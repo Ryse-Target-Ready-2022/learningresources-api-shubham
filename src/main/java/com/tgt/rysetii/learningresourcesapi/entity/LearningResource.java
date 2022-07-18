@@ -1,9 +1,6 @@
 package com.tgt.rysetii.learningresourcesapi.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -23,6 +20,7 @@ public class LearningResource implements Serializable {
     @Column(name="selling_price")
     private Double sellingPrice;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="learning_resource_status")
     private LearningResourceStatus productStatus;
 
