@@ -1,16 +1,38 @@
 package com.tgt.rysetii.learningresourcesapi.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-
-public class LearningResource {
+@Entity
+@Table(name = "learningresources")
+public class LearningResource implements Serializable {
+    @Id
+    @Column(name="learning_resource_id")
     private Integer id;
+
+    @Column(name="learning_resource_name")
     private String name;
+
+    @Column(name="cost_price")
     private Double costPrice;
+
+    @Column(name="selling_price")
     private Double sellingPrice;
+
+    @Column(name="learning_resource_status")
     private LearningResourceStatus productStatus;
+
+    @Column(name="created_date")
     private LocalDate createdDate;
+
+    @Column(name="published_date")
     private LocalDate publishedDate;
+
+    @Column(name="retired_date")
     private LocalDate retiredDate;
 
     public LearningResource() {
@@ -89,5 +111,19 @@ public class LearningResource {
 
     public void setRetiredDate(LocalDate retiredDate) {
         this.retiredDate = retiredDate;
+    }
+
+    @Override
+    public String toString() {
+        return "LearningResource{" +
+                "learningResourceId=" + id +
+                ", learningResourceName='" + name + '\'' +
+                ", costPrice=" + costPrice +
+                ", sellingPrice=" + sellingPrice +
+                ", learningResourceStatus=" + productStatus +
+                ", createdDate=" + createdDate +
+                ", publishedDate=" + publishedDate +
+                ", retiredDate=" + retiredDate +
+                '}';
     }
 }
