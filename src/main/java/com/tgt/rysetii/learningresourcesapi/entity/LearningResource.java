@@ -114,14 +114,14 @@ public class LearningResource implements Serializable {
     @Override
     public String toString() {
         return "LearningResource{" +
-                "learningResourceId=" + id +
-                ", learningResourceName='" + name + '\'' +
-                ", costPrice=" + costPrice +
-                ", sellingPrice=" + sellingPrice +
-                ", learningResourceStatus=" + productStatus +
-                ", createdDate=" + createdDate +
-                ", publishedDate=" + publishedDate +
-                ", retiredDate=" + retiredDate +
+                "learningResourceId=" + this.id +
+                ", learningResourceName='" + this.name + '\'' +
+                ", costPrice=" + this.costPrice +
+                ", sellingPrice=" + this.sellingPrice +
+                ", learningResourceStatus=" + this.productStatus +
+                ", createdDate=" + this.createdDate +
+                ", publishedDate=" + this.publishedDate +
+                ", retiredDate=" + this.retiredDate +
                 '}';
     }
 }
