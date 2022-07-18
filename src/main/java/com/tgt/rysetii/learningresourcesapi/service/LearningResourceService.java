@@ -2,6 +2,7 @@ package com.tgt.rysetii.learningresourcesapi.service;
 
 import com.tgt.rysetii.learningresourcesapi.entity.LearningResource;
 import com.tgt.rysetii.learningresourcesapi.repository.LearningResourceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
@@ -9,11 +10,12 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class LearningResourceService {
 
-    private static LearningResourceRepository learningResourceRepository;
+    @Autowired
+    private LearningResourceRepository learningResourceRepository;
 
-    public LearningResourceService() {
-        LearningResourceService.learningResourceRepository = learningResourceRepository;
-    }
+  // public LearningResourceService() {
+    //    LearningResourceService.learningResourceRepository = learningResourceRepository;
+   // }
 
     public List<LearningResource> getLearningResources(){
         return learningResourceRepository.findAll();
