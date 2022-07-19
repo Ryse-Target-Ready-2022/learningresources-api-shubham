@@ -22,14 +22,4 @@ public class LearningresourcesApiApplication {
 		System.out.println("Hello, World! <Shubham Pandiya>");
 		//developed by shubh
 	}
-
-	@PostConstruct
-	public void init(){
-		List<LearningResource> l1 = learningResourceService.getLearningResources();
-
-		System.out.println("Output"+ l1.toString());
-		learningResourceService.saveLearningResources(l1);
-	}
-
-
 }

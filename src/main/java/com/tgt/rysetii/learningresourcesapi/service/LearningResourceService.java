@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import static java.util.stream.Collectors.toList;
 
 @Service
@@ -45,5 +47,7 @@ public class LearningResourceService {
         return learningResources;
     }
 
-    //public static void main(String[] args) {}
+    public void deleteLearningResourceById(int id){
+        learningResourceRepository.deleteById(id);
+    }
 }
