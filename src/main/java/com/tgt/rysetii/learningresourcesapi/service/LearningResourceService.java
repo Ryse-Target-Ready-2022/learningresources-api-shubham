@@ -2,20 +2,24 @@ package com.tgt.rysetii.learningresourcesapi.service;
 
 import com.tgt.rysetii.learningresourcesapi.entity.LearningResource;
 import com.tgt.rysetii.learningresourcesapi.repository.LearningResourceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 import static java.util.stream.Collectors.toList;
 
 @Service
 public class LearningResourceService {
 
-    @Autowired
-    private LearningResourceRepository learningResourceRepository;
+    //@Autowired
+    private final LearningResourceRepository learningResourceRepository;
+
+    public LearningResourceService(LearningResourceRepository learningResourceRepository) {
+        this.learningResourceRepository = learningResourceRepository;
+    }
 
     public List<LearningResource> getLearningResources(){
         return new ArrayList<>(learningResourceRepository.findAll());
