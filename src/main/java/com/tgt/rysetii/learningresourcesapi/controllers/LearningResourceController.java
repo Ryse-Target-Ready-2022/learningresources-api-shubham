@@ -15,20 +15,21 @@ import java.util.List;
 @RequestMapping("/api/learningresources")
 public class LearningResourceController {
 
-    @Autowired
-    LearningResourceService service;
+    private final LearningResourceService service;
+
+    public LearningResourceController(LearningResourceService learningResourceService) {
+        this.service = learningResourceService;
+    }
 
     @GetMapping("/")
     public List<LearningResource> handleGetAll(){
         return service.getLearningResources();
     }
 
-    @PostMapping
+    @PostMapping(value = "/", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveLearningResources(@RequestBody LearningResource learningResources){
-        List<LearningResource> list = new ArrayList<>();
-        list.add(learningResources);
-        service.saveLearningResources(list);
+    public void saveLearningResources(@RequestBody List<LearningResource> learningResources){
+        service.saveLearningResources(learningResources);
     }
 
     @DeleteMapping(value = "/{id}", produces = {"application/json"})
